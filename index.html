@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>AMPANY Consular Court — De Jure Consular Jurisdiction</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="brand">
+      <!-- Replace these with your AMPANY images in /assets/ -->
+      <img src="assets/ampany-seal.png" alt="AMPANY Seal" class="seal" />
+      <div class="title">
+        <h1>Anu Manahatta Praedium Ante New York (AMPANY)</h1>
+        <p class="subtitle">Consular Court — De Jure Consular Jurisdiction</p>
+      </div>
+      <img src="assets/ampany-flag.png" alt="AMPANY Flag" class="flag" />
+    </div>
+
+    <nav class="main-nav" aria-label="Main Navigation">
+      <button data-section="home" class="nav-btn">Home</button>
+      <button data-section="docket" class="nav-btn">Docket</button>
+      <button data-section="file" class="nav-btn">File Case</button>
+      <button data-section="decree" class="nav-btn">Issue Decree</button>
+      <button data-section="verify" class="nav-btn">Verify</button>
+      <button data-section="treaties" class="nav-btn">Treaties</button>
+      <button data-section="contacts" class="nav-btn">Contacts</button>
+      <button data-section="admin" class="nav-btn">Admin</button>
+    </nav>
+  </header>
+
+  <main class="container">
+    <!-- HOME -->
+    <section id="home" class="panel active">
+      <h2>Consular Jurisdiction & Sovereignty</h2>
+      <p>Exercising de jure authority under international treaty law and common law principles.</p>
+
+      <div class="quick-actions">
+        <button id="open-file">File a Case</button>
+        <button id="view-docket">View Docket</button>
+      </div>
+
+      <div class="features">
+        <article>
+          <h3>Case Management</h3>
+          <p>File, track, and manage all consular court matters in a secure digital registry.</p>
+        </article>
+        <article>
+          <h3>Document Verification</h3>
+          <p>Cryptographically verify the authenticity of any court document or decree.</p>
+        </article>
+        <article>
+          <h3>Decree Issuance</h3>
+          <p>Generate official decrees with embedded verification codes and QR signatures.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- DOCKET -->
+    <section id="docket" class="panel">
+      <div class="panel-header">
+        <h2>Docket</h2>
+        <div class="docket-actions">
+          <button id="export-json">Export JSON</button>
+          <input id="import-json" type="file" accept=".json" />
+          <button id="clear-all">Clear All Local Data</button>
+        </div>
+      </div>
+
+      <table id="docket-table" class="docket-table" aria-live="polite">
+        <thead>
+          <tr>
+            <th>Case ID</th><th>Title</th><th>Filer</th><th>Type</th><th>Status</th><th>Created</th><th>Actions</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </section>
+
+    <!-- FILE A CASE -->
+    <section id="file" class="panel">
+      <h2>File a Case</h2>
+      <form id="file-form">
+        <label>Party Filing
+          <input name="party" required />
+        </label>
+        <label>Role
+          <select name="role">
+            <option>Executor</option><option>Trustee</option><option>Beneficiary</option><option>Consul</option><option>Other</option>
+          </select>
+        </label>
+        <label>Respondent
+          <input name="respondent" />
+        </label>
+        <label>Case Title
+          <input name="title" required />
+        </label>
+        <label>Case Type
+          <select name="type">
+            <option>Affidavit</option><option>BillOfExchange</option><option>Lien</option><option>TreatyEnforcement</option><option>Notice</option><option>DecreeRequest</option>
+          </select>
+        </label>
+        <label>Amount (USD)
+          <input name="amount" type="number" step="0.01" />
+        </label>
+        <label>Incident Date
+          <input name="incident_date" type="date" />
+        </label>
+
+        <p class="declaration">I declare under 28 U.S.C. § 1746 that the foregoing is true and correct.</p>
+
+        <div class="form-actions">
+          <button type="submit">Submit Case</button>
+          <button type="button" id="view-docket-from-form">View Docket</button>
+        </div>
+      </form>
+    </section>
+
+    <!-- ISSUE DECREE -->
+    <section id="decree" class="panel">
+      <h2>Issue Decree</h2>
+      <form id="decree-form">
+        <label>Case ID
+          <input name="case_id" />
+        </label>
+        <label>Effective Date
+          <input name="effective_date" type="date" />
+        </label>
+        <label>Findings
+          <textarea name="findings" rows="4"></textarea>
+        </label>
+        <label>Orders
+          <textarea name="orders" rows="4"></textarea>
+        </label>
+        <div class="form-actions">
+          <button type="submit">Generate Print View</button>
+        </div>
+      </form>
+      <div id="print-preview" class="print-preview" hidden></div>
+    </section>
+
+    <!-- VERIFY -->
+    <section id="verify" class="panel">
+      <h2>Verify</h2>
+      <p>Upload the JSON or enter verification code to verify documents.</p>
+      <input type="text" id="verify-code" placeholder="Enter verification code" />
+      <button id="verify-btn">Verify</button>
+      <div id="verify-result" class="verify-result" aria-live="polite"></div>
+    </section>
+
+    <!-- TREATIES -->
+    <section id="treaties" class="panel">
+      <h2>Treaties Library</h2>
+      <ul>
+        <li><strong>Treaty of Peace &amp; Friendship (1786/1836)</strong> — Foundational treaty; pacta sunt servanda.</li>
+        <li><strong>Treaty of Madrid (1880)</strong> — Consular protections and commercial provisions.</li>
+        <li><strong>General Act of Algeciras (1906)</strong> — Administrative and fiscal matters concerning Morocco.</li>
+        <li><strong>Vienna Convention on Consular Relations (1963)</strong> — Baseline for consular functions and immunities.</li>
+      </ul>
+    </section>
+
+    <!-- CONTACTS -->
+    <section id="contacts" class="panel">
+      <h2>Contacts</h2>
+      <p>Manage court contacts here.</p>
+      <button id="add-contact">Add Contact</button>
+      <ul id="contacts-list"></ul>
+    </section>
+
+    <!-- ADMIN -->
+    <section id="admin" class="panel">
+      <h2>Admin</h2>
+      <label>Set Admin Passphrase
+        <input id="admin-pass" />
+      </label>
+      <label>HMAC Secret (optional)
+        <input id="hmac-secret" />
+      </label>
+      <div class="form-actions">
+        <button id="save-admin">Save</button>
+        <button id="clear-data">Clear All Local Data</button>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <small>© AMPANY Consular Court</small>
+  </footer>
+
+  <script src="script.js" defer></script>
+</body>
+</html>

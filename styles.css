@@ -1,0 +1,38 @@
+:root{
+  --accent:#123a2d;
+  --muted:#666;
+  --bg:#f8f9fb;
+  --card:#fff;
+}
+*{box-sizing:border-box}
+body{font-family:Inter,system-ui,Segoe UI,Roboto,Arial,sans-serif;margin:0;background:var(--bg);color:#111;line-height:1.4}
+.site-header{background:linear-gradient(90deg, #0b2b24, #123a2d);color:#fff;padding:14px 18px;position:sticky;top:0;z-index:30}
+.brand{display:flex;align-items:center;gap:14px;max-width:1200px;margin:0 auto}
+.brand .seal{height:64px;width:64px;object-fit:contain}
+.brand .flag{height:48px;width:96px;object-fit:contain;margin-left:auto}
+.brand h1{margin:0;font-size:1.05rem}
+.subtitle{margin:0;font-size:0.85rem;opacity:0.9}
+.main-nav{display:flex;gap:8px;margin-top:10px;flex-wrap:wrap}
+.main-nav .nav-btn{background:transparent;border:1px solid rgba(255,255,255,0.15);color:#fff;padding:6px 10px;border-radius:6px;cursor:pointer}
+.main-nav .nav-btn:hover{background:rgba(255,255,255,0.06)}
+
+.container{max-width:1100px;margin:22px auto;padding:0 18px}
+.panel{display:none;background:var(--card);padding:18px;border-radius:10px;box-shadow:0 6px 18px rgba(10,10,10,0.05);margin-bottom:18px}
+.panel.active{display:block}
+.panel-header{display:flex;align-items:center;justify-content:space-between}
+.docket-table{width:100%;border-collapse:collapse;margin-top:12px}
+.docket-table th, .docket-table td{padding:8px 10px;border-bottom:1px solid #eee;text-align:left;font-size:0.95rem}
+.quick-actions{display:flex;gap:10px;margin-top:12px}
+.quick-actions button{padding:10px 14px;border-radius:8px;border:0;background:var(--accent);color:#fff;cursor:pointer}
+.features{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin-top:14px}
+.features article{background:#fff;padding:12px;border-radius:8px;border:1px solid #eee}
+form label{display:block;margin-bottom:10px;font-size:0.95rem}
+form input, form select, form textarea{width:100%;padding:8px;border-radius:6px;border:1px solid #ddd;background:#fbfbfb}
+.form-actions{display:flex;gap:10px;margin-top:12px}
+.form-actions button{padding:10px 12px;border-radius:8px;border:0;background:var(--accent);color:#fff;cursor:pointer}
+.site-footer{padding:12px;text-align:center;color:var(--muted);font-size:0.9rem}
+.print-preview{background:#fff;border:1px dashed #ccc;padding:12px;margin-top:12px}
+@media (max-width:720px){
+  .brand{flex-direction:column;align-items:flex-start}
+  .brand .flag{margin-left:0}
+}
